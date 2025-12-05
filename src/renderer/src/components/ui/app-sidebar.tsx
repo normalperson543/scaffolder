@@ -12,6 +12,7 @@ import {
   SidebarMenuItem
 } from './sidebar'
 import { CogIcon, LayoutDashboardIcon, PlusIcon, WrenchIcon } from 'lucide-react'
+import { useNavigate } from 'react-router-dom';
 
 const items = [
   {
@@ -36,11 +37,10 @@ const items = [
   }
 ]
 export default function AppSidebar(): JSX.Element {
+  const navigate = useNavigate();
+  
   return (
-    <Sidebar>
-      <SidebarHeader>
-        <p className="font-bold text-xl">Scaffolder</p>
-      </SidebarHeader>
+    <Sidebar collapsible="icon">
       <SidebarContent>
         <SidebarGroup>
           <SidebarGroupContent>
@@ -48,7 +48,7 @@ export default function AppSidebar(): JSX.Element {
               {items.map((item) => (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton asChild>
-                    <a href={item.url}>
+                    <a href="#" onClick={() => navigate(item.url)}>
                       <item.icon />
                       <p>{item.title}</p>
                     </a>
