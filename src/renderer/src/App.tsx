@@ -63,7 +63,7 @@ function App(): React.JSX.Element {
               </div>
               <Button variant="outline">
                 <ArrowRightIcon width={12} height={12} />
-                Manage
+                View all
               </Button>
             </div>
             <div className="flex flex-col gap-2">
@@ -77,7 +77,7 @@ function App(): React.JSX.Element {
                   </ItemTitle>
                   <ItemContent>
                     <div className="flex flex-col gap-0 flex-1">
-                      <p>Build a React SPA app</p>
+                      <p>Build a React app quickly</p>
                     </div>
                   </ItemContent>
                   <ItemActions>

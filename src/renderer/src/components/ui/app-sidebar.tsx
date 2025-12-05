@@ -11,19 +11,36 @@ import {
   SidebarMenuButton,
   SidebarMenuItem
 } from './sidebar'
-import { LayoutDashboardIcon } from 'lucide-react'
+import { CogIcon, LayoutDashboardIcon, PlusIcon, WrenchIcon } from 'lucide-react'
 
 const items = [
   {
     icon: LayoutDashboardIcon,
     title: 'Dashboard',
-    url: '#'
+    url: '/'
+  },
+  {
+    icon: PlusIcon,
+    title: 'Create',
+    url: "/create"
+  },
+  {
+    icon: WrenchIcon,
+    title: 'Tools',
+    url: "#"
+  },
+  {
+    icon: CogIcon,
+    title: 'Settings',
+    url: "#"
   }
 ]
 export default function AppSidebar(): JSX.Element {
   return (
     <Sidebar>
-      <SidebarHeader />
+      <SidebarHeader>
+        <p className="font-bold text-xl">Scaffolder</p>
+      </SidebarHeader>
       <SidebarContent>
         <SidebarGroup>
           <SidebarGroupContent>
