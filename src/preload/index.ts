@@ -1,5 +1,7 @@
 import { contextBridge } from 'electron'
 import { electronAPI } from '@electron-toolkit/preload'
+import { promisify } from 'util'
+import { exec } from 'child_process'
 
 // Custom APIs for renderer
 const api = {}
