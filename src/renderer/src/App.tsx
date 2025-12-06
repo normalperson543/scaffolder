@@ -2,8 +2,9 @@ import { SidebarProvider } from './components/ui/sidebar'
 import AppSidebar from './components/ui/app-sidebar'
 import { Route, Routes } from 'react-router-dom'
 import Dashboard from './pages/Dashboard'
-import Create from './pages/Create'
 import { ThemeProvider } from './components/ui/theme-provider'
+import CreateStep1 from './pages/create/CreateStep1'
+import CreateStep2 from './pages/create/CreateStep2'
 // https://www.geeksforgeeks.org/javascript/how-to-set-up-vite-for-a-multi-page-application/
 function App(): React.JSX.Element {
   const ipcHandle = (): void => window.electron.ipcRenderer.send('ping')
@@ -19,7 +20,8 @@ function App(): React.JSX.Element {
           <AppSidebar />
           <Routes>
             <Route path="/" element={<Dashboard />} />
-            <Route path="/create" element={<Create />} />
+            <Route path="/create/1" element={<CreateStep1 />} />
+            <Route path="/create/2" element={<CreateStep2 />} />
           </Routes>
         </div>
       </SidebarProvider>

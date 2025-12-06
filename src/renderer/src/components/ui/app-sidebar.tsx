@@ -23,7 +23,7 @@ const items = [
   {
     icon: PlusIcon,
     title: 'Create',
-    url: "/create"
+    url: "/create/1"
   },
   {
     icon: WrenchIcon,

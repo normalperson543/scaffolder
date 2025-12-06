@@ -18,6 +18,7 @@ import {
 } from '../components/ui/item'
 import { SidebarProvider, SidebarTrigger } from '../components/ui/sidebar'
 import AppSidebar from '../components/ui/app-sidebar'
+import BlueprintItem from '@renderer/components/ui/blueprint-item'
 
 function Dashboard(): React.JSX.Element {
   const ipcHandle = (): void => window.electron.ipcRenderer.send('ping')
@@ -35,14 +36,16 @@ function Dashboard(): React.JSX.Element {
             <ItemMedia>
               <img src={reactLogo} width={24} height={24} />
             </ItemMedia>
-            <ItemTitle>
-              <h3 className="font-bold">MyProject</h3>
-            </ItemTitle>
-            <ItemDescription>
-              <div className="flex flex-col gap-0 flex-1">
-                <p>Last modified 4 days ago</p>
-              </div>
-            </ItemDescription>
+            <ItemContent>
+              <ItemTitle>
+                <h3 className="font-bold">MyProject</h3>
+              </ItemTitle>
+              <ItemDescription>
+                <div className="flex flex-col gap-0 flex-1">
+                  <p>Last modified 4 days ago</p>
+                </div>
+              </ItemDescription>
+            </ItemContent>
             <ItemActions>
               <Button variant="outline" size="icon">
                 <GitBranchIcon width={12} height={12} />
@@ -63,24 +66,11 @@ function Dashboard(): React.JSX.Element {
           </Button>
         </div>
         <div className="flex flex-col gap-2">
-          <Item variant="outline" size="sm" asChild>
-            <a href="#">
-              <ItemMedia>
-                <img src={reactLogo} width={24} height={24} />
-              </ItemMedia>
-              <ItemTitle>
-                <h3 className="font-bold">React + TypeScript + Vite</h3>
-              </ItemTitle>
-              <ItemContent>
-                <div className="flex flex-col gap-0 flex-1">
-                  <p>Build a React app quickly</p>
-                </div>
-              </ItemContent>
-              <ItemActions>
-                <ChevronRightIcon width={12} height={12} />
-              </ItemActions>
-            </a>
-          </Item>
+          <BlueprintItem
+            logo={reactLogo}
+            title="React + TypeScript + Vite"
+            description="a description"
+          />
         </div>
         <div className="flex flex-row items-center">
           <div className="flex-1">
