@@ -26,7 +26,7 @@ import {
   SelectTrigger,
   SelectValue
 } from '@renderer/components/ui/select'
-import { FolderInput } from 'lucide-react'
+import { ArrowRightIcon, FolderInput } from 'lucide-react'
 import { useState } from 'react'
 function CreateStep2(): React.JSX.Element {
   const [projectName, setProjectName] = useState('')
@@ -38,7 +38,7 @@ function CreateStep2(): React.JSX.Element {
         title="Customize your project settings"
         description="Here you can change your settings like project name, development tools and Git repositories."
       />
-      <div className="flex flex-col gap-2 justify-center items-center pt-40 pl-16 pr-16 pb-16">
+      <div className="flex flex-col gap-2 justify-center items-center pt-42 pl-16 pr-16 pb-16">
         <Item variant="outline" className="w-full">
           <ItemContent>
             <FieldSet>
@@ -137,6 +137,10 @@ function CreateStep2(): React.JSX.Element {
                 </Select>
               </Field>
             </FieldSet>
+            <Button>
+              <ArrowRightIcon width={12} height={12} />
+              Create project
+            </Button>
           </ItemContent>
         </Item>
       </div>

@@ -15,7 +15,7 @@ import {
   SelectTrigger,
   SelectValue
 } from '@renderer/components/ui/select'
-import { SquareArrowOutUpRightIcon } from 'lucide-react'
+import { ArrowRightIcon, SquareArrowOutUpRightIcon } from 'lucide-react'
 
 function CreateCustom(): React.JSX.Element {
   return (
@@ -25,7 +25,7 @@ function CreateCustom(): React.JSX.Element {
         title="Create a custom project"
         description="Select frameworks, build tools, or go fullstack. Make it yours. We won't judge."
       />
-      <div className="flex flex-col gap-2 pt-40 pl-16 pr-16 pb-16">
+      <div className="flex flex-col gap-2 pt-42 pl-16 pr-16 pb-16">
         <Item variant="outline" className="w-full">
           <ItemContent>
             <FieldSet>
@@ -45,70 +45,85 @@ function CreateCustom(): React.JSX.Element {
                   </SelectTrigger>
                   <SelectContent>
                     <SelectGroup>
-                      <SelectLabel>Runtimes</SelectLabel>
-                      <SelectItem value="nodejs">Node.js</SelectItem>
-                      <SelectItem value="deno">Deno</SelectItem>
-                      <SelectItem value="bun">Bun</SelectItem>
+                      <SelectLabel>Frameworks</SelectLabel>
+                      <SelectItem value="react">React</SelectItem>
+                      <SelectItem value="vue">Vue</SelectItem>
+                      <SelectItem value="svelte">Svelte</SelectItem>
+                      <SelectItem value="angular">Angular</SelectItem>
                     </SelectGroup>
                     <SelectGroup>
-                      <SelectItem value="none">Vanilla</SelectItem>
+                      <SelectLabel>Go fullstack</SelectLabel>
+                      <SelectItem value="nextjs">Next.js</SelectItem>
+                      <SelectItem value="vuerouter">Vue Router</SelectItem>
+                      <SelectItem value="sveltekit">SvelteKit</SelectItem>
+                    </SelectGroup>
+                    <SelectGroup>
+                      <SelectLabel>Other options</SelectLabel>
+                      <SelectItem value="vanilla">Vanilla (no framework)</SelectItem>
                     </SelectGroup>
                   </SelectContent>
                 </Select>
               </Field>
               <Field>
-                <FieldLabel>Package manager</FieldLabel>
+                <FieldLabel>Build tools</FieldLabel>
+                <FieldDescription>
+                  Build tools allow you to compile stuff in your app, including packages.
+                </FieldDescription>
                 <Select>
                   <SelectTrigger>
-                    <SelectValue placeholder="Choose a package manager" />
+                    <SelectValue placeholder="Choose a build tool" />
                   </SelectTrigger>
                   <SelectContent>
                     <SelectGroup>
-                      <SelectItem value="npm">npm</SelectItem>
-                      <SelectItem value="pnpm">pnpm</SelectItem>
-                      <SelectItem value="yarn">yarn</SelectItem>
+                      <SelectItem value="Vite">Vite</SelectItem>
+                      <SelectItem value="Parcel">Parcel</SelectItem>
                     </SelectGroup>
                     <SelectGroup>
-                      <SelectItem value="none">No package manager</SelectItem>
+                      <SelectItem value="none">No buld tool (not recommended)</SelectItem>
                     </SelectGroup>
                   </SelectContent>
                 </Select>
               </Field>
               <Field>
-                <FieldLabel>Git repository</FieldLabel>
+                <FieldLabel>Language</FieldLabel>
                 <FieldDescription>
-                  Initializing Git will allow you to use source control, a way to keep a history of
-                  the changes in your project.
+                  Choose the programming language that you'll use to make your project.
                 </FieldDescription>
-                <div className="flex flex-row gap-2">
-                  <Checkbox defaultChecked />
+                <Select>
+                  <SelectTrigger>
+                    <SelectValue placeholder="Choose a language" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectGroup>
+                      <SelectItem value="js">JavaScript</SelectItem>
+                      <SelectItem value="ts">TypeScript</SelectItem>
+                    </SelectGroup>
+                  </SelectContent>
+                </Select>
+              </Field>
+              <Field>
+                <FieldLabel>Make a blueprint</FieldLabel>
+                <FieldDescription>
+                  You can optionally choose to turn this custom project configuration into a
+                  blueprint, which will allow you to create new projects quickly based on this
+                  configuration.
+                </FieldDescription>
+                <div className="flex flex-row gap-2 items-center">
+                  <Checkbox />
                   <div className="flex flex-col gap-1">
-                    <Label>Initialize a Git repository</Label>
+                    <Label>Turn this into a blueprint</Label>
                   </div>
                 </div>
-              </Field>
-              <Field>
-                <FieldLabel>Code editor</FieldLabel>
-                <Select>
-                  <SelectTrigger>
-                    <SelectValue placeholder="Choose a code editor" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectGroup>
-                      <SelectItem value="vscode">Visual Studio Code</SelectItem>
-                      <SelectItem value="zed">Zed</SelectItem>
-                    </SelectGroup>
-                    <SelectGroup>
-                      <SelectItem value="none">No code editor</SelectItem>
-                    </SelectGroup>
-                  </SelectContent>
-                </Select>
               </Field>
               <Field>
                 <FieldLabel>Blueprint name</FieldLabel>
                 <Input type="text" maxLength={32} />
               </Field>
             </FieldSet>
+            <Button>
+              <ArrowRightIcon width={12} height={12} />
+              Create custom project
+            </Button>
           </ItemContent>
         </Item>
       </div>
