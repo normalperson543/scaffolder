@@ -10,7 +10,7 @@ function CreateHeader({
   description: string
 }): JSX.Element {
   return (
-    <div className="flex flex-col gap-2 justify-center items-center text-center">
+    <div className="flex flex-col gap-2 justify-center items-center text-center fixed top-0 w-[calc(100%-192px)] h-32 bg-background! pt-8 shadow-xl shadow-background">
       <div className="flex flex-row gap-2 w-1/3 justify-center">
         <div className="w-1/3 h-1 bg-white"></div>
         {step === 2 ? (

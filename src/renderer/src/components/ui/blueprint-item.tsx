@@ -8,7 +8,7 @@ function BlueprintItem({
   description,
   href
 }: {
-  logo: string
+  logo?: string
   title: string
   description: string
   href?: string
@@ -16,9 +16,11 @@ function BlueprintItem({
   return (
     <Item variant="outline" asChild>
       <a href={href ?? '#'}>
-        <ItemMedia>
-          <img src={logo} width={24} height={24} />
-        </ItemMedia>
+        {logo && (
+          <ItemMedia>
+            <img src={logo} width={24} height={24} />
+          </ItemMedia>
+        )}
         <ItemContent>
           <ItemTitle>
             <h3 className="font-bold">{title}</h3>

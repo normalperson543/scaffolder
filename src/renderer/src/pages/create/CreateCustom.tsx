@@ -1,20 +1,9 @@
 import { Button } from '@renderer/components/ui/button'
 import { Checkbox } from '@renderer/components/ui/checkbox'
 import CreateHeader from '@renderer/components/ui/create-header'
-import {
-  Field,
-  FieldDescription,
-  FieldLabel,
-  FieldLegend,
-  FieldSet
-} from '@renderer/components/ui/field'
+import { Field, FieldDescription, FieldLabel, FieldSet } from '@renderer/components/ui/field'
 import { Input } from '@renderer/components/ui/input'
-import {
-  InputGroup,
-  InputGroupAddon,
-  InputGroupButton,
-  InputGroupInput
-} from '@renderer/components/ui/input-group'
+import { InputGroup, InputGroupInput } from '@renderer/components/ui/input-group'
 import { Item, ItemContent } from '@renderer/components/ui/item'
 import { Label } from '@renderer/components/ui/label'
 import {
@@ -26,54 +15,33 @@ import {
   SelectTrigger,
   SelectValue
 } from '@renderer/components/ui/select'
-import { FolderInput } from 'lucide-react'
-import { useState } from 'react'
-function CreateStep2(): React.JSX.Element {
-  const [projectName, setProjectName] = useState('')
-  const [projectLocation, setProjectLocation] = useState('')
+import { SquareArrowOutUpRightIcon } from 'lucide-react'
+
+function CreateCustom(): React.JSX.Element {
   return (
     <div className="flex flex-col gap-4 justify-between w-full h-full">
       <CreateHeader
-        step={2}
-        title="Customize your project settings"
-        description="Here you can change your settings like project name, development tools and Git repositories."
+        step={1}
+        title="Create a custom project"
+        description="Select frameworks, build tools, or go fullstack. Make it yours. We won't judge."
       />
-      <div className="flex flex-col gap-2 justify-center items-center pt-40 pl-16 pr-16 pb-16">
+      <div className="flex flex-col gap-2 pt-40 pl-16 pr-16 pb-16">
         <Item variant="outline" className="w-full">
           <ItemContent>
             <FieldSet>
               <Field>
-                <FieldLabel>Project name</FieldLabel>
-                <Input
-                  type="text"
-                  onChange={(e) => setProjectName(e.target.value)}
-                  value={projectName}
-                  maxLength={32}
-                />
-                <FieldDescription>Your project will be named {projectName}</FieldDescription>
-              </Field>
-              <Field>
-                <FieldLabel>Project location</FieldLabel>
-                <InputGroup>
-                  <InputGroupInput
-                    type="text"
-                    onChange={(e) => setProjectLocation(e.target.value)}
-                    value={projectLocation}
-                    className="font-mono"
-                  />
-                  <InputGroupAddon align="inline-end">
-                    <InputGroupButton size="xs">
-                      <FolderInput width={12} height={12} />
-                      Choose location
-                    </InputGroupButton>
-                  </InputGroupAddon>
-                </InputGroup>
-              </Field>
-              <Field>
-                <FieldLabel>JavaScript runtime</FieldLabel>
+                <FieldLabel>Choose your framework</FieldLabel>
+                <FieldDescription>
+                  Frameworks allow you to build web-powered apps efficiently. Depending on your
+                  framework, you'll also choose a build tool.
+                </FieldDescription>
+                <Button variant="ghost">
+                  <SquareArrowOutUpRightIcon width={12} height={12} />
+                  What's a framework?
+                </Button>
                 <Select>
                   <SelectTrigger>
-                    <SelectValue placeholder="Choose a JavaScript runtime" />
+                    <SelectValue placeholder="Choose a framework" />
                   </SelectTrigger>
                   <SelectContent>
                     <SelectGroup>
@@ -83,7 +51,7 @@ function CreateStep2(): React.JSX.Element {
                       <SelectItem value="bun">Bun</SelectItem>
                     </SelectGroup>
                     <SelectGroup>
-                      <SelectItem value="none">No runtime</SelectItem>
+                      <SelectItem value="none">Vanilla</SelectItem>
                     </SelectGroup>
                   </SelectContent>
                 </Select>
@@ -136,6 +104,10 @@ function CreateStep2(): React.JSX.Element {
                   </SelectContent>
                 </Select>
               </Field>
+              <Field>
+                <FieldLabel>Blueprint name</FieldLabel>
+                <Input type="text" maxLength={32} />
+              </Field>
             </FieldSet>
           </ItemContent>
         </Item>
@@ -144,4 +116,4 @@ function CreateStep2(): React.JSX.Element {
   )
 }
 
-export default CreateStep2
+export default CreateCustom

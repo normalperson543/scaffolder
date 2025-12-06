@@ -4,18 +4,23 @@ import CreateHeader from "@renderer/components/ui/create-header"
 
 function CreateStep1(): React.JSX.Element {
   return (
-    <div className="p-16 justify-between w-full h-full">
+    <div className="justify-between w-full h-full">
       <CreateHeader
         step={1}
         title="What do you want to create?"
         description="You can select from one of the blueprints below, or import a file."
       />
-      <div className="flex flex-col gap-2">
+      <div className="pt-40 pl-16 pr-16 pb-16 flex flex-col gap-2">
         <BlueprintItem
           logo={reactLogo}
           title="React + TypeScript + Vite"
           description="a description"
           href="/create/2"
+        />
+        <BlueprintItem
+          title="Custom project"
+          description="Customize how your project works. If you want to feel... more custom."
+          href="/create/custom"
         />
       </div>
     </div>
