@@ -1,17 +1,35 @@
-import { ColumnDef, flexRender, getCoreRowModel, useReactTable } from '@tanstack/react-table'
+import {
+  ColumnDef,
+  flexRender,
+  getCoreRowModel,
+  getSortedRowModel,
+  SortingState,
+  useReactTable
+} from '@tanstack/react-table'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '../table'
 import { JSX } from 'react/jsx-runtime'
+import { useState } from 'react'
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[]
   data: TData[]
 }
-function PackagesTable<TData, TValue>({ columns, data }: DataTableProps<TData, TValue>): JSX.Element {
+function PackagesTable<TData, TValue>({
+  columns,
+  data
+}: DataTableProps<TData, TValue>): JSX.Element {
+  const [sorting, setSorting] = useState<SortingState>([])
   const table = useReactTable({
     data,
     columns,
-    getCoreRowModel: getCoreRowModel()
+    getCoreRowModel: getCoreRowModel(),
+    onSortingChange: setSorting,
+    getSortedRowModel: getSortedRowModel(),
+    state: {
+      sorting
+    }
   })
-  return ( //https://ui.shadcn.com/docs/components/data-table
+  return (
+    //https://ui.shadcn.com/docs/components/data-table
     <div className="overflow-hidden rounded-md border">
       <Table>
         <TableHeader>

@@ -54,7 +54,7 @@ function CreateCustom(): React.JSX.Element {
                     <SelectGroup>
                       <SelectLabel>Go fullstack</SelectLabel>
                       <SelectItem value="nextjs">Next.js</SelectItem>
-                      <SelectItem value="vuerouter">Vue Router</SelectItem>
+                      <SelectItem value="nuxt">Nuxt</SelectItem>
                       <SelectItem value="sveltekit">SvelteKit</SelectItem>
                     </SelectGroup>
                     <SelectGroup>
