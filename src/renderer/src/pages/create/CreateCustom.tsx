@@ -25,7 +25,7 @@ function CreateCustom(): React.JSX.Element {
         title="Create a custom project"
         description="Select frameworks, build tools, or go fullstack. Make it yours. We won't judge."
       />
-      <div className="flex flex-col gap-2 pt-42 pl-16 pr-16 pb-16">
+      <div className="flex flex-col gap-2 pt-2 pl-16 pr-16 pb-16">
         <Item variant="outline" className="w-full">
           <ItemContent>
             <FieldSet>

@@ -10,7 +10,7 @@ function CreateStep1(): React.JSX.Element {
         title="What do you want to create?"
         description="You can select from one of the blueprints below, or import a file."
       />
-      <div className="pt-42 pl-16 pr-16 pb-16 flex flex-col gap-2">
+      <div className="pt-2 pl-16 pr-16 pb-16 flex flex-col gap-2">
         <BlueprintItem
           logo={reactLogo}
           title="React + TypeScript + Vite"

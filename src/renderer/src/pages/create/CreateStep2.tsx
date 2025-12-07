@@ -38,7 +38,7 @@ function CreateStep2(): React.JSX.Element {
         title="Customize your project settings"
         description="Here you can change your settings like project name, development tools and Git repositories."
       />
-      <div className="flex flex-col gap-2 justify-center items-center pt-42 pl-16 pr-16 pb-16">
+      <div className="flex flex-col gap-2 justify-center items-center pt-2 pl-16 pr-16 pb-16">
         <Item variant="outline" className="w-full">
           <ItemContent>
             <FieldSet>

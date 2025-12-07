@@ -11,7 +11,8 @@ import {
   DropdownMenuTrigger
 } from '../dropdown-menu'
 import { Button } from '../button'
-import { ArrowUpDownIcon, MoreHorizontalIcon } from 'lucide-react'
+import { ArrowUpDownIcon, BoxIcon, MoreHorizontalIcon } from 'lucide-react'
+import { HoverCard, HoverCardContent, HoverCardTrigger } from '../hover-card'
 
 export const columns: ColumnDef<Package>[] = [
   {
@@ -46,6 +47,25 @@ export const columns: ColumnDef<Package>[] = [
           Package name
           <ArrowUpDownIcon className="ml-2 h-4 w-4" />
         </Button>
+      )
+    },
+    cell: ({ row }) => {
+      const packageItem = row.original
+      return (
+        <HoverCard>
+          <HoverCardTrigger>
+            <p className="font-mono">{packageItem.sanitized_name}</p>
+          </HoverCardTrigger>
+          <HoverCardContent className="w-80 text-sm">
+            <div className="flex flex-row gap-2 w-full">
+              <BoxIcon width={16} height={16} />
+              <div className="flex flex-col gap-1">
+                <p className="font-bold">{packageItem.sanitized_name}</p>
+                <p>{packageItem.description}</p>
+              </div>
+            </div>
+          </HoverCardContent>
+        </HoverCard>
       )
     }
   },

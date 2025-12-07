@@ -12,7 +12,7 @@ function CreateHeader({
   description: string
 }): JSX.Element {
   return (
-    <div className="flex flex-col gap-2 items-center text-center fixed top-0 w-[calc(100%-192px)] h-36 bg-background! pt-6 shadow-xl shadow-background z-5">
+    <div className="flex flex-col gap-2 items-center text-center sticky top-0 w-full h-36 bg-background! pt-6 shadow-lg shadow-background z-5">
       <div className="flex flex-row gap-2 w-1/3 justify-center items-center pr-10">
         <Button variant="ghost">
           <ChevronLeftIcon width={12} height={12} />
