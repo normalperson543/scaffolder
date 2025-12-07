@@ -3,11 +3,12 @@ import {
   ChevronRightIcon,
   GitBranchIcon,
   PackageIcon,
+  PlayIcon,
+  SquareArrowUpRightIcon,
   SquareChevronRightIcon
 } from 'lucide-react'
 import reactLogo from '../assets/logos/react-logo.svg'
 import { Button } from '../components/ui/button'
-import { ThemeProvider } from '../components/ui/theme-provider'
 import {
   Item,
   ItemActions,
@@ -16,12 +17,13 @@ import {
   ItemMedia,
   ItemTitle
 } from '../components/ui/item'
-import { SidebarProvider, SidebarTrigger } from '../components/ui/sidebar'
-import AppSidebar from '../components/ui/app-sidebar'
 import BlueprintItem from '@renderer/components/ui/blueprint-item'
+import { SidebarTrigger } from '@renderer/components/ui/sidebar'
+import { useNavigate } from 'react-router-dom'
 
 function Dashboard(): React.JSX.Element {
   const ipcHandle = (): void => window.electron.ipcRenderer.send('ping')
+  const navigate = useNavigate()
 
   return (
     <>
@@ -31,7 +33,7 @@ function Dashboard(): React.JSX.Element {
           <h2 className="text-2xl font-bold">Projects</h2>
         </div>
         <p>Let's create something new today</p>
-        <Item variant="outline" size="sm" asChild>
+        <Item variant="outline" size="sm" asChild onClick={() => navigate('/project')}>
           <a href="#">
             <ItemMedia>
               <img src={reactLogo} width={24} height={24} />
@@ -49,6 +51,12 @@ function Dashboard(): React.JSX.Element {
             <ItemActions>
               <Button variant="outline" size="icon">
                 <GitBranchIcon width={12} height={12} />
+              </Button>
+              <Button variant="outline" size="icon">
+                <PlayIcon width={12} height={12} />
+              </Button>
+              <Button variant="outline" size="icon">
+                <SquareArrowUpRightIcon width={12} height={12} />
               </Button>
             </ItemActions>
           </a>

@@ -1,6 +1,7 @@
 import { JSX } from 'react/jsx-runtime'
 import { Item, ItemActions, ItemContent, ItemMedia, ItemTitle } from './item'
 import { ChevronRightIcon } from 'lucide-react'
+import { useNavigate } from 'react-router-dom'
 
 function BlueprintItem({
   logo,
@@ -13,9 +14,10 @@ function BlueprintItem({
   description: string
   href?: string
 }): JSX.Element {
+  const navigate = useNavigate()
   return (
-    <Item variant="outline" asChild>
-      <a href={href ?? '#'}>
+    <Item variant="outline" asChild onClick={() => navigate(href ?? '#')}>
+      <a href="#">
         {logo && (
           <ItemMedia>
             <img src={logo} width={24} height={24} />
