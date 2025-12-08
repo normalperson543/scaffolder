@@ -56,13 +56,10 @@ export const columns: ColumnDef<Package>[] = [
           <HoverCardTrigger>
             <p className="font-mono">{packageItem.sanitized_name}</p>
           </HoverCardTrigger>
-          <HoverCardContent className="w-80 text-sm">
-            <div className="flex flex-row gap-2 w-full">
-              <BoxIcon width={16} height={16} />
-              <div className="flex flex-col gap-1">
-                <p className="font-bold">{packageItem.sanitized_name}</p>
-                <p>{packageItem.description}</p>
-              </div>
+          <HoverCardContent className="text-sm">
+            <div className="flex flex-col gap-1">
+              <p className="font-bold">{packageItem.sanitized_name}</p>
+              <p>{packageItem.description}</p>
             </div>
           </HoverCardContent>
         </HoverCard>
