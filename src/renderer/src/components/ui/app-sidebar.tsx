@@ -6,13 +6,21 @@ import {
   SidebarFooter,
   SidebarGroup,
   SidebarGroupContent,
-  SidebarHeader,
   SidebarMenu,
   SidebarMenuButton,
-  SidebarMenuItem
+  SidebarMenuItem,
+  useSidebar
 } from './sidebar'
-import { CogIcon, LayoutDashboardIcon, PlusIcon, WrenchIcon } from 'lucide-react'
-import { useNavigate } from 'react-router-dom';
+import {
+  BookDashedIcon,
+  CogIcon,
+  LayoutDashboardIcon,
+  PlusIcon,
+  SidebarCloseIcon,
+  SidebarOpenIcon,
+  WrenchIcon
+} from 'lucide-react'
+import { useNavigate } from 'react-router-dom'
 
 const items = [
   {
@@ -23,38 +31,63 @@ const items = [
   {
     icon: PlusIcon,
     title: 'Create',
-    url: "/create/1"
+    url: '/create/1'
+  },
+  {
+    icon: BookDashedIcon,
+    title: 'Blueprints',
+    url: '/blueprints'
   },
   {
     icon: WrenchIcon,
     title: 'Tools',
-    url: "#"
+    url: '#'
   },
   {
     icon: CogIcon,
     title: 'Settings',
-    url: "#"
+    url: '#'
   }
 ]
 export default function AppSidebar(): JSX.Element {
-  const navigate = useNavigate();
-  
+  const navigate = useNavigate()
+  const { open, toggleSidebar } = useSidebar()
   return (
     <Sidebar collapsible="icon">
-      <SidebarContent>
+      <SidebarContent className="flex flex-col">
+        <div className="flex-1">
+          <SidebarGroup>
+            <SidebarGroupContent>
+              <SidebarMenu>
+                {items.map((item) => (
+                  <SidebarMenuItem key={item.title}>
+                    <SidebarMenuButton asChild>
+                      <a href="#" onClick={() => navigate(item.url)}>
+                        <item.icon />
+                        <p>{item.title}</p>
+                      </a>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                ))}
+              </SidebarMenu>
+            </SidebarGroupContent>
+          </SidebarGroup>
+        </div>
         <SidebarGroup>
           <SidebarGroupContent>
             <SidebarMenu>
-              {items.map((item) => (
-                <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton asChild>
-                    <a href="#" onClick={() => navigate(item.url)}>
-                      <item.icon />
-                      <p>{item.title}</p>
-                    </a>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
-              ))}
+              <SidebarMenuItem>
+                <SidebarMenuButton asChild>
+                  <a href="#" onClick={toggleSidebar}>
+                    {open ? (
+                      <SidebarCloseIcon width={12} height={12} />
+                    ) : (
+                      <SidebarOpenIcon width={12} height={12} />
+                    )}
+                    <p>Close sidebar</p>
+                  </a>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>

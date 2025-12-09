@@ -29,7 +29,6 @@ function Dashboard(): React.JSX.Element {
     <>
       <div className="flex flex-col gap-1 w-3/5 p-3">
         <div className="flex flex-row items-center">
-          <SidebarTrigger />
           <h2 className="text-2xl font-bold">Projects</h2>
         </div>
         <p>Let's create something new today</p>
