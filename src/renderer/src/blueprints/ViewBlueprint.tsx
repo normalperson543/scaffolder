@@ -32,14 +32,27 @@ function ViewBlueprint(): JSX.Element {
           </div>
           <Separator />
           <div className="pl-3 pr-3 pb-1">
-            <TabsList>
+            <TabsList defaultValue="readme">
               <TabsTrigger value="readme">Readme</TabsTrigger>
-              <TabsTrigger value="readme">Readme</TabsTrigger>
+              <TabsTrigger value="workflow">Workflow</TabsTrigger>
+              <TabsTrigger value="permissions">Permissions</TabsTrigger>
+              <TabsTrigger value="settings">Settings</TabsTrigger>
             </TabsList>
           </div>
         </div>
 
-        <TabsContent value="packages"></TabsContent>
+        <TabsContent value="readme">
+          <p>readme goes here :3</p>
+        </TabsContent>
+        <TabsContent value="workflow">
+          <div className="flex flex-col gap-1 pt-1 pb-1 pl-3 pr-3 w-full">
+            <div className="flex flex-row gap-2 items-center">
+              <div className="flex flex-col gap-1 flex-1">
+                <p className="text-lg font-bold">Workflow</p>
+              </div>
+            </div>
+          </div>
+        </TabsContent>
       </Tabs>
     </div>
   )

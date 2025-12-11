@@ -19,3 +19,34 @@ export type Package = {
     npm: string
   }
 }
+export type Blueprint = {
+  name: string
+  description: string
+  repository?: string
+  defaultSettings?: {
+    runtime: JSRuntime
+    packageManager: PackageManager
+    codeEditor: CodeEditor
+  }
+  workflow: Workflow[]
+}
+export type PackageManager = 'npm' | 'pnpm' | 'yarn' | 'bun' | 'deno'
+export type JSRuntime = 'nodejs' | 'bun' | 'deno'
+export type CodeEditor = 'vscode' | 'zed'
+export type CreateAction = {
+  create: {
+    package: MiniPackage
+    params: ActionParams
+  }
+}
+export type MiniPackage = {
+  name: string
+  version?: string
+}
+export type ActionParams = {
+  content: string
+  only?: PackageManager
+}
+export type Workflow = {
+  
+}
